@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <ol id="marital-status"></ol>
+    </div>
+  </body>
+  <script>
+    var doc = document;
+    var oldElement = doc.getElementById("marital-status");
+    var h1 = doc.createElement("h1");
+    var h1Text = doc.createTextNode("Choose your Marital Status");
+    h1.appendChild(h1Text);
+    var parentDiv = oldElement.parentNode;
+    parentDiv.replaceChild(h1, oldElement);
+    var labelArray = ["single", "married", "Do not share"];
+    for (i = 0; i < labelArray.length; i++) {
+      var input = doc.createElement("input");
+      input.setAttribute("type", "radio");
+      input.setAttribute("name", "marital-status");
+      input.setAttribute("value", labelArray[i]);
+      var label = doc.createElement("label");
+      label.setAttribute("for", labelArray[i]);
+      var labelText = doc.createTextNode(labelArray[i]);
+      label.appendChild(labelText);
+      parentDiv.appendChild(input);
+      parentDiv.appendChild(label);
+    }
+  </script>
+</html>
